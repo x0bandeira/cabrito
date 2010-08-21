@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+
+<style>
+body { margin: 0; font-size: 100%; font-family: Helvetica, Arial, sans-serif; }
+.wrapper { width : 480px; margin: 0 auto; }
+
+header, footer, section { float: left; width: 100%; clear: both; }
+
+header { text-align: right; }
+header h2 { font-size: 90%; }
+ul { padding: 0; }
+ul li { list-style: none; padding: 20px 10px; border-bottom: 2px #eee dotted; }
+.buttons { float: right; }
+.buttons button { font-weight: bold; text-transform: uppercase; border: none; background: transparent; color: #fff; padding: 2px 3px; cursor: pointer; border-bottom: 1px #aaa solid; border-right: 1px #aaa solid; }
+.nope.buttons button:active { border: none; border-top: 1px #aaa solid; border-left: 1px #aaa solid; margin-top: -1px; }
+.buttons .sim { background-color: green; }
+.buttons .nao { background-color: red; }
+.buttons .sim.clicado { -moz-box-shadow: green 0 0 15px;  }
+.buttons .nao.clicado { -moz-box-shadow: red 0 0 15px;  }
+.submit { text-align: right; }
+.submit input { border: none; background: transparent; text-transform: lowercase; cursor: pointer; }
+.submit input:hover { border-bottom: 1px dotted black; }
+footer { margin: 40px 0 0 0; padding: 20px 0 20px 0; text-align: right; font-size: 12px; background: #000; color: #fff; }
+footer a { color: orange; }
+</style>
+
+</head>
+<body>
+
+<header>
+   <div class="wrapper">
+     <hgroup>
+      <h1>Cabrito?</h1>
+      <h2>
+      A grana tá curta e ta querendo arranjar um freela?<br />
+      Calma lá! Faz aí nosso teste e vê se tu precisa mesmo disso!
+      </h2>
+    </hgroup>
+  </div>
+</header>
+<section>
+  <div class="wrapper">
+    <form action="/" method="post">
+
+      <ul>
+        <li>
+          <strong>A grana tá curta?</strong>
+	        <div class="buttons">
+	          <button class="sim">Sim</button>
+	          <button class="nao">Não</button>
+	        </div>
+	        <input type="hidden" name="grana" value="" />
+        </li>
+        <li>
+          <strong>Tá com tempo de sobra?</strong>
+	        <div class="buttons">
+	          <button class="sim">Sim</button>
+	          <button class="nao">Não</button>
+	        </div>
+	        <input type="hidden" name="tempo" value="" />
+        </li>
+        <li>
+          <strong>O trampo tá chato?</strong>
+	        <div class="buttons">
+	          <button class="sim">Sim</button>
+	          <button class="nao">Não</button>
+	        </div>
+	        <input type="hidden" name="trampo" value="" />
+        </li>
+        <li>
+          <strong>Tem ido no cinema?</strong>
+	        <div class="buttons">
+	            <button class="sim">Sim</button>
+	            <button class="nao">Não</button>
+	        </div>
+	        <input type="hidden" name="vida" value="" />
+        </li>
+        <li>
+          <strong>Curte inovar ou tá tri fazer formulário?</strong>
+	        <div class="buttons">
+	          <button class="sim">Sim</button>
+	          <button class="nao">Não</button>
+	        </div>
+	        <input type="hidden" name="inovar" value="" />
+        </li>
+      </ul>
+
+      <div class="submit">
+        <input type="submit" value="Tá, preciso ou não de um freela? &raquo;" />
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrapper">
+    Rafael Bandeira - <a href="http://twitter.com/rafb3">@rafb3</a> | nenhum direito reservado.
+  </div>
+</footer>
+
+<script>
+
+var buttons = document.getElementsByTagName('button'), i, btnSim, btnNao;
+for (i = 0; i < buttons.length; i+=2) {
+  btnSim = buttons[i];
+  btnNao = buttons[i+1];
+  btnSim.btnNao = btnNao;
+  btnNao.btnSim = btnSim;
+
+
+  btnSim.onclick = function() {
+    this.className = this.className + ' clicado';
+    this.btnNao.className = this.btnNao.className.replace(/ clicado/, '');
+    return false;
+  }
+  btnNao.onclick = function() {
+    this.className = this.className + ' clicado';
+    this.btnSim.className = this.btnSim.className.replace(/ clicado/, '');
+    return false;
+  }
+}
+
+</script>
+
+</body>
+</html>
